@@ -1,0 +1,14 @@
+<div class="panel panel-primary">
+  <div class="panel-heading">Happenings</div>
+  <div class="panel-body">
+    <div *ngIf="happenings">
+      <ul class="list-unstyled">
+        <li *ngFor="let h of happenings">
+          <lilo-happening-card [happening]="h">
+
+          </lilo-happening-card>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
