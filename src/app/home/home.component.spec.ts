@@ -5,6 +5,7 @@ import { FilterSectionComponent } from '../filter-section/filter-section.compone
 import { HappeningSectionComponent } from '../happening-section/happening-section.component';
 import { SidebarComponent } from '../sidebar/sidebar.component';
 import { HappeningCardComponent } from '../happening-list/happening-card.component';
+import { HappeningListComponent } from '../happening-list/happening-list.component';
 
 describe('HomeComponent', () => {
   let component: HomeComponent;
@@ -16,6 +17,7 @@ describe('HomeComponent', () => {
         HomeComponent,
         FilterSectionComponent,
         HappeningSectionComponent,
+        HappeningListComponent,
         HappeningCardComponent,
         SidebarComponent
       ]

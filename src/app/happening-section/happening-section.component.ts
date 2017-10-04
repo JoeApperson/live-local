@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HappeningVm } from './happening.vm';
+import { HappeningVM } from './happening.vm';
 import { Observable } from 'rxjs/Observable';
 import { ApplicationState } from '../store/appState';
 import { Store } from '@ngrx/store';
@@ -14,7 +14,7 @@ import { stateToHappeningSummariesSelector } from './stateToHappeningSummary';
 })
 export class HappeningSectionComponent implements OnInit {
 
-  happenings$: Observable<HappeningVm[]> = Observable.empty();
+  happenings$: Observable<HappeningVM[]> = Observable.empty();
 
   constructor(private store: Store<ApplicationState>, private happService: HappeningsService) {
 

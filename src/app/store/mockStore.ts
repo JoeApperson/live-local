@@ -1,4 +1,6 @@
-// mock-store.ts
+
+// A mock store for test usage
+
 import { Action } from '@ngrx/store';
 import { Observable } from 'rxjs/Observable';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';

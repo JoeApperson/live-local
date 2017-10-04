@@ -1,11 +1,11 @@
 // The Happening view model
 
-export class HappeningVm {
+export interface HappeningVM {
   id: number;
   eventName: string;
   venueName: string;
-  showDate: Date;
-  showEndDate: Date;
+  showDate: string;    // yyyy-mm-dd
+  showEndDate: string; // yyyy-mm-dd
   showTime: string;
   ticketPrices: string;
   featuring: string;

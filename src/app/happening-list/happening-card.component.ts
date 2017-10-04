@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { HappeningVm } from '../happening-section/happening.vm';
+import { HappeningVM } from '../happening-section/happening.vm';
 
 @Component({
   selector: 'lilo-happening-card',
@@ -8,7 +8,7 @@ import { HappeningVm } from '../happening-section/happening.vm';
 })
 export class HappeningCardComponent implements OnInit {
 
-  @Input() happening: HappeningVm;
+  @Input() happening: HappeningVM;
   constructor() { }
 
   ngOnInit() {

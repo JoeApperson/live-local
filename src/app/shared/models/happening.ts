@@ -4,8 +4,8 @@ export interface Happening {
   id: number;
   eventName: string;
   venueName: string;
-  showDate: Date;
-  showEndDate: Date;
+  showDate: string;
+  showEndDate: string;
   showTime: string;
   ticketPrices: string;
   featuring: string;
