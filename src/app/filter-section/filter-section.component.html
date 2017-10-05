@@ -1,3 +1,7 @@
 <div class="panel">
-  There will be some filtering controls in here
+  <lilo-filter
+    [venues]="venues$ | async"
+    [locations]="locations$ | async"
+    [artists]="artists$ | async">
+  </lilo-filter>
 </div>

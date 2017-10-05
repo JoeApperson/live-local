@@ -1,8 +1,8 @@
 import { ActionReducerMap } from '@ngrx/store';
 
 import { StoreData } from './storeData';
-import { reduceUiState, UiState } from './uiState';
 import { reduceStoreData } from './reducers/reduceStoreData';
+import { reduceUiState } from './reducers/reduceUiState';
 
 export interface ApplicationState {
   uiState: {};

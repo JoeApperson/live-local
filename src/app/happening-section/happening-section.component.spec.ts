@@ -1,8 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { HappeningSectionComponent } from './happening-section.component';
-import { HappeningCardComponent } from '../happening-list/happening-card.component';
-import { HappeningListComponent } from '../happening-list/happening-list.component';
+import { HappeningCardComponent } from './happening-card/happening-card.component';
+import { HappeningListComponent } from './happening-list/happening-list.component';
 
 describe('HappeningSectionComponent', () => {
   let component: HappeningSectionComponent;

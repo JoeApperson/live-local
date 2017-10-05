@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { HappeningVM } from '../happening-section/happening.vm';
+import { HappeningVM } from '../happening.vm';
 
 @Component({
   selector: 'lilo-happening-card',

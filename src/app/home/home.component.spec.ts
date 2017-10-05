@@ -4,8 +4,8 @@ import { HomeComponent } from './home.component';
 import { FilterSectionComponent } from '../filter-section/filter-section.component';
 import { HappeningSectionComponent } from '../happening-section/happening-section.component';
 import { SidebarComponent } from '../sidebar/sidebar.component';
-import { HappeningCardComponent } from '../happening-list/happening-card.component';
-import { HappeningListComponent } from '../happening-list/happening-list.component';
+import { HappeningCardComponent } from '../happening-section/happening-card/happening-card.component';
+import { HappeningListComponent } from '../happening-section/happening-list/happening-list.component';
 
 describe('HomeComponent', () => {
   let component: HomeComponent;

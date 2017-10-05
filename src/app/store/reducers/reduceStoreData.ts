@@ -1,8 +1,8 @@
 import { Action } from '@ngrx/store';
 import { keyBy } from 'lodash';
+import * as moment from 'moment';
 
 import { LOAD_REGION_HAPPENINGS_ACTION, LoadRegionHappeningsAction } from '../actions';
-import { HappeningVM } from '../../happening-section/happening.vm';
 import { INITIAL_STORE_DATA, StoreData } from '../storeData';
 
 export function reduceStoreData(state: StoreData = INITIAL_STORE_DATA, action: Action): StoreData {
@@ -16,10 +16,11 @@ export function reduceStoreData(state: StoreData = INITIAL_STORE_DATA, action: A
 
 function handleLoadRegionHappeningsAction(state: StoreData, action: LoadRegionHappeningsAction): StoreData {
   const data = action.payload;
-  const currentDate: string = (new Date().toISOString()).split('T')[0];
+  const currentDate = moment();
 
   const happenings = data.happenings.filter((h) =>
-    ((!h.showEndDate || h.showEndDate >= currentDate) && (h.showDate >= currentDate)));
+    (currentDate.isSameOrBefore(h.showDate, 'date')) ||
+    (h.showEndDate && currentDate.isSameOrBefore(h.showEndDate, 'date')));
 
   return Object.assign({}, state, {
     happenings: keyBy(happenings, 'id')

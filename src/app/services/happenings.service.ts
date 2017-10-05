@@ -11,11 +11,8 @@ export class HappeningsService {
 
   getHappenings(): Observable<AllRegionalData> {
 
-    // TODO: Get this from an api REST endpoint instead
+    // TODO: Get this from an api REST endpoint instead and add error handling
     return this.http.get('/assets/happenings.json')
-      .map(response => {
-        console.log('mock data' + response.json());
-        return response.json();
-      });
+      .map(response => response.json());
   }
 }

@@ -1,11 +1,11 @@
 import { TestBed, async } from '@angular/core/testing';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
-import { HappeningCardComponent } from './happening-list/happening-card.component';
+import { HappeningCardComponent } from './happening-section/happening-card/happening-card.component';
 import { HappeningSectionComponent } from './happening-section/happening-section.component';
 import { FilterSectionComponent } from './filter-section/filter-section.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
-import { HappeningListComponent } from './happening-list/happening-list.component';
+import { HappeningListComponent } from './happening-section/happening-list/happening-list.component';
 import { Store } from '@ngrx/store';
 import { MockStore } from './store/mockStore';
 import { HappeningsService } from './services/happenings.service';
