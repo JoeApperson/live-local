@@ -14,6 +14,9 @@ import { HappeningListComponent } from './happening-section/happening-list/happe
 import { HappeningsService } from './services/happenings.service';
 import { reducers } from './store/appState';
 import { FilterComponent } from './filter-section/filter/filter.component';
+import { EffectsModule } from '@ngrx/effects';
+import { LoadRegionHappeningsAction } from './store/actions';
+import { LoadHappeningsEffectService } from './store/effects/load-happenings-effect.service';
 
 @NgModule({
   declarations: [
@@ -30,7 +33,8 @@ import { FilterComponent } from './filter-section/filter/filter.component';
     BrowserModule,
     FormsModule,
     HttpModule,
-    StoreModule.forRoot(reducers)
+    StoreModule.forRoot(reducers),
+    EffectsModule.forRoot([LoadHappeningsEffectService])
   ],
   providers: [
     HappeningsService

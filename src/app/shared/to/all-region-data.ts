@@ -1,6 +1,6 @@
 import { Happening } from '../models/happening';
 
-export interface AllRegionalData {
+export interface AllRegionData {
   happenings: Happening[];
 }
 

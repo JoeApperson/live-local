@@ -2,19 +2,21 @@ import { Action } from '@ngrx/store';
 import { keyBy } from 'lodash';
 import * as moment from 'moment';
 
-import { LOAD_REGION_HAPPENINGS_ACTION, LoadRegionHappeningsAction } from '../actions';
+import {
+  REGION_HAPPENINGS_LOADED_ACTION, RegionHappeningsLoadedAction
+} from '../actions';
 import { INITIAL_STORE_DATA, StoreData } from '../storeData';
 
 export function reduceStoreData(state: StoreData = INITIAL_STORE_DATA, action: Action): StoreData {
   switch (action.type) {
-    case LOAD_REGION_HAPPENINGS_ACTION:
-      return handleLoadRegionHappeningsAction(state, <LoadRegionHappeningsAction>action);
+    case REGION_HAPPENINGS_LOADED_ACTION:
+      return handleRegionHappeningsLoadedAction(state, <RegionHappeningsLoadedAction>action);
     default:
       return state;
   }
 }
 
-function handleLoadRegionHappeningsAction(state: StoreData, action: LoadRegionHappeningsAction): StoreData {
+function handleRegionHappeningsLoadedAction(state: StoreData, action: RegionHappeningsLoadedAction): StoreData {
   const data = action.payload;
   const currentDate = moment();
 

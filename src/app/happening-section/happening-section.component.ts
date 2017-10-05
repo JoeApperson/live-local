@@ -3,8 +3,8 @@ import { HappeningVM } from './happening.vm';
 import { Observable } from 'rxjs/Observable';
 import { ApplicationState } from '../store/appState';
 import { Store } from '@ngrx/store';
-import { LoadRegionHappeningsAction } from '../store/actions';
-import { HappeningsService } from '../services/happenings.service';
+
+import { SelectRegionAction } from '../store/actions';
 import { stateToHappeningSummariesSelector } from './stateToHappeningSummary';
 
 @Component({
@@ -16,16 +16,13 @@ export class HappeningSectionComponent implements OnInit {
 
   happenings$: Observable<HappeningVM[]> = Observable.empty();
 
-  constructor(private store: Store<ApplicationState>, private happService: HappeningsService) {
-
+  constructor(private store: Store<ApplicationState>) {
     this.happenings$ = store.select(stateToHappeningSummariesSelector);
   }
 
   ngOnInit() {
-    this.happService.getHappenings()
-      .subscribe(data =>
-        this.store.dispatch(new LoadRegionHappeningsAction(data))
-      );
+    const DEFAULT_REGION = 'DC';
+    this.store.dispatch(new SelectRegionAction(DEFAULT_REGION));
   }
 
 }
