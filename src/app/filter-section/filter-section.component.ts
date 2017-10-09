@@ -1,8 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
+import { Store } from '@ngrx/store';
+
 import { VenueVM } from './venue.vm';
 import { LocationVM } from './location.vm';
 import { ArtistVM } from './artist.vm';
+import { ApplicationState } from '../store/appState';
+import { SearchHappeningsAction } from '../store/actions';
 
 @Component({
   selector: 'lilo-filter-section',
@@ -15,7 +19,7 @@ export class FilterSectionComponent implements OnInit {
   locations$: Observable<Array<LocationVM>>;
   venues$: Observable<Array<VenueVM>>;
 
-  constructor() {
+  constructor(public store: Store<ApplicationState>) {
 
     // TODO: Replace these with store selectors
     this.artists$ = Observable.of([
@@ -35,7 +39,9 @@ export class FilterSectionComponent implements OnInit {
 
   }
 
-  ngOnInit() {
-  }
+  ngOnInit() { }
 
+  searchChanged(term: string) {
+    this.store.dispatch(new SearchHappeningsAction(term));
+  }
 }

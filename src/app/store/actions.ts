@@ -21,3 +21,10 @@ export class RegionHappeningsLoadedAction implements Action {
 
   constructor(public payload: AllRegionData) { }
 }
+
+export const SEARCH_HAPPENINGS_ACTION = 'SEARCH_HAPPENINGS_ACTION';
+export class SearchHappeningsAction implements Action {
+  readonly type = SEARCH_HAPPENINGS_ACTION;
+
+  constructor(public searchTerm: string) { }
+}

@@ -11,6 +11,9 @@ import 'rxjs/add/observable/of';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/switchMap';
+import 'rxjs/add/operator/withLatestFrom';
+import 'rxjs/add/operator/combineLatest';
+import 'rxjs/add/operator/filter';
 
 if (environment.production) {
   enableProdMode();

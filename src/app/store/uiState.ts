@@ -1,10 +1,12 @@
 
 export interface UiState {
-  userId: number;
-  currentRegionId: number;
+  currentRegionId: string;
+  searchTerm: string;
+  userId: string;
 }
 
 export const INITIAL_UI_STATE: UiState = {
-  userId: undefined,
-  currentRegionId: undefined
+  currentRegionId: undefined,
+  searchTerm: undefined,
+  userId: undefined
 };

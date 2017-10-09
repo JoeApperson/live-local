@@ -2,6 +2,7 @@
   <lilo-filter
     [venues]="venues$ | async"
     [locations]="locations$ | async"
-    [artists]="artists$ | async">
+    [artists]="artists$ | async"
+    (searchChange)="searchChanged($event)">
   </lilo-filter>
 </div>

@@ -12,3 +12,7 @@ export function stateToHappeningSummariesSelector(state: ApplicationState): Happ
 function mapHappeningToHappeningSummary(state: ApplicationState, happ: Happening): HappeningVM {
   return happ;
 }
+
+export function stateToVisibleHappeningsSelector(state: ApplicationState): Array<number> {
+  return state.storeData.visibleHappenings;
+}
