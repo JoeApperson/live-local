@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { HappeningVM } from '../happening.vm';
 
 @Component({
@@ -8,10 +8,20 @@ import { HappeningVM } from '../happening.vm';
 })
 export class HappeningCardComponent implements OnInit {
 
-  @Input() happening: HappeningVM;
+  @Input()
+  happening: HappeningVM;
+  @Input()
+  selectedID: number;
+  @Output()
+  selected = new EventEmitter<HappeningVM>();
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  selectHappening(happening: HappeningVM) {
+    this.selected.emit(happening);
   }
 
   isSoldOut(): boolean {

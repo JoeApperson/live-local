@@ -1,4 +1,6 @@
 <lilo-happening-list
   [happenings]="happeningsToShow"
-  [loadingData]="isLoading$ | async">
-</lilo-happening-list>
+  [loadingData]="isLoading$ | async"
+  [selectedID]="selectedID$ | async"
+  (selected)="selectHappening($event)"
+></lilo-happening-list>

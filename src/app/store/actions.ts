@@ -1,5 +1,6 @@
 import { Action } from '@ngrx/store';
 import { AllRegionData } from '../shared/to/all-region-data';
+import { HappeningVM } from '../happening-section/happening.vm';
 
 export const SELECT_REGION_ACTION = 'SELECT_REGION_ACTION';
 export class SelectRegionAction implements Action {
@@ -28,3 +29,11 @@ export class SearchHappeningsAction implements Action {
 
   constructor(public searchTerm: string) { }
 }
+
+export const SELECT_HAPPENING_ACTION = 'SELECT_HAPPENING_ACTION';
+export class SelectHappeningAction implements Action {
+  readonly type = SELECT_HAPPENING_ACTION;
+
+  constructor(public happening: HappeningVM) { }
+}
+

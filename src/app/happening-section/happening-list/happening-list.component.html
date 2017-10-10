@@ -6,9 +6,11 @@
     <div *ngIf="happenings">
       <ul class="list-unstyled">
         <li *ngFor="let h of happenings">
-          <lilo-happening-card [happening]="h">
-
-          </lilo-happening-card>
+          <lilo-happening-card
+            [happening]="h"
+            [selectedID]="selectedID"
+            (selected)="selectHappening($event)"
+          ></lilo-happening-card>
         </li>
       </ul>
     </div>

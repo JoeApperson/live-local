@@ -5,7 +5,7 @@ import { ApplicationState } from '../store/appState';
 import { Store } from '@ngrx/store';
 import { values } from 'lodash';
 
-import { SelectRegionAction } from '../store/actions';
+import { SelectHappeningAction, SelectRegionAction } from '../store/actions';
 import { stateToHappeningSummariesSelector, stateToVisibleHappeningsSelector } from './stateToHappeningSummary';
 
 @Component({
@@ -17,6 +17,8 @@ export class HappeningSectionComponent implements OnInit {
 
   happenings$: Observable<HappeningVM[]> = Observable.empty();
   visibleHappenings$: Observable<Array<number>>;
+  selectedID$: Observable<number>;
+
   // TODO: Get this from the store
   isLoading$: Observable<boolean> = Observable.of(false);
 
@@ -25,6 +27,7 @@ export class HappeningSectionComponent implements OnInit {
   constructor(private store: Store<ApplicationState>) {
     this.happenings$ = store.select(stateToHappeningSummariesSelector);
     this.visibleHappenings$ = store.select(stateToVisibleHappeningsSelector);
+    this.selectedID$ = store.select(state => state.uiState.selectedHappeningID);
 
     // This is an observable of visibleHappenings$ that filters happenings$ so only those matching the user's filter
     // conditions are included on the happenings list.
@@ -42,4 +45,7 @@ export class HappeningSectionComponent implements OnInit {
     this.store.dispatch(new SelectRegionAction(DEFAULT_REGION));
   }
 
+  selectHappening(happening: HappeningVM) {
+    this.store.dispatch(new SelectHappeningAction(happening));
+  }
 }

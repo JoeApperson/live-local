@@ -11,3 +11,11 @@
 .panel > label {
   margin-right: 8px;
 }
+
+.panel-info > .panel-heading {
+  cursor: pointer;
+}
+
+*.panel-info.active {
+  border: 3px solid palevioletred;
+}

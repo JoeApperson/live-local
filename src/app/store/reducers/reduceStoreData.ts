@@ -6,7 +6,6 @@ import {
   REGION_HAPPENINGS_LOADED_ACTION, RegionHappeningsLoadedAction, SEARCH_HAPPENINGS_ACTION, SearchHappeningsAction
 } from '../actions';
 import { INITIAL_STORE_DATA, StoreData } from '../storeData';
-import { HappeningVM } from '../../happening-section/happening.vm';
 import { Happening } from '../../shared/models/happening';
 
 export function reduceStoreData(state: StoreData = INITIAL_STORE_DATA, action: Action): StoreData {

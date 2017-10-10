@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { HappeningVM } from '../happening.vm';
 
 @Component({
@@ -12,10 +12,16 @@ export class HappeningListComponent implements OnInit {
   happenings: HappeningVM[] = [];
   @Input()
   loadingData: boolean;
+  @Input()
+  selectedID: number;
+  @Output()
+  selected = new EventEmitter<HappeningVM>();
 
   constructor() { }
 
-  ngOnInit() {
-  }
+  ngOnInit() { }
 
+  selectHappening(happening: HappeningVM) {
+    this.selected.emit(happening);
+  }
 }

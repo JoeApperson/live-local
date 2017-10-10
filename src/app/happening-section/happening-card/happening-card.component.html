@@ -1,5 +1,5 @@
-<div class="panel">
-  <div class="panel-heading">
+<div class="panel panel-info" [ngClass]="{'active': happening.id === selectedID}">
+  <div class="panel-heading" (click)="selectHappening(happening)">
     {{happening.eventName}}
     <div class="pull-right">
       <label>Tix:</label>
