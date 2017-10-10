@@ -20,7 +20,7 @@ export class LoadHappeningsEffectService {
     .switchMap(action => this.hs.getHappenings((action as LoadRegionHappeningsAction).region))
     .map(data => new RegionHappeningsLoadedAction(data))
     // TODO: Add some error handling
-    // .catch((err) => Observable.of(new ErrorOccurredAction(LOAD_USER_THREADS_ERROR_NOTICE, err.message)))
+    // .catch((err) => Observable.of(new ErrorOccurredAction(LOAD_REGION_HAPPENINGS_ERROR_NOTICE, err.message)))
   ;
 
   @Effect()

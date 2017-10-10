@@ -12,10 +12,18 @@ import {
   platformBrowserDynamicTesting
 } from '@angular/platform-browser-dynamic/testing';
 
-// Add used rxjs operators here:
+// Add used rxjs operators here. Keep this list with main.ts:
 import 'rxjs/add/observable/empty';
 import 'rxjs/add/observable/from';
+import 'rxjs/add/observable/of';
+import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/switchMap';
+import 'rxjs/add/operator/withLatestFrom';
+import 'rxjs/add/operator/combineLatest';
+import 'rxjs/add/operator/filter';
+import 'rxjs/add/operator/debounceTime';
+import 'rxjs/add/operator/distinctUntilChanged';
 
 // Unfortunately there's no typing for the `__karma__` variable. Just declare it as any.
 declare const __karma__: any;

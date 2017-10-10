@@ -1,11 +1,30 @@
 import { TestBed, inject } from '@angular/core/testing';
+import { BaseRequestOptions, Http, HttpModule } from '@angular/http';
+import { MockBackend } from '@angular/http/testing';
+import { provideMockActions } from '@ngrx/effects/testing';
+import { Observable } from 'rxjs/Observable';
 
 import { LoadHappeningsEffectService } from './load-happenings-effect.service';
+import { HappeningsService } from '../../services/happenings.service';
 
-describe('LoadHappeningsEffectServiceService', () => {
+describe('LoadHappeningsEffectService', () => {
+  let actions: Observable<any>;
+
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [LoadHappeningsEffectService]
+      imports: [HttpModule],
+      providers: [
+        MockBackend,
+        BaseRequestOptions,
+        {
+          provide: Http,
+          useFactory: (backend, options) => new Http(backend, options),
+          deps: [ MockBackend, BaseRequestOptions ]
+        },
+        HappeningsService,
+        LoadHappeningsEffectService,
+        provideMockActions(() => actions)
+      ]
     });
   });
 

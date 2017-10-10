@@ -14,8 +14,8 @@ export class HappeningCardComponent implements OnInit {
   ngOnInit() {
   }
 
-  isHappeningSoldOut(): boolean {
-    return this.happening.ticketPrices === 'SOLD OUT';
+  isSoldOut(): boolean {
+    return this.happening && this.happening.ticketPrices === 'SOLD OUT';
   }
 
   isNumeric(p: any): boolean {

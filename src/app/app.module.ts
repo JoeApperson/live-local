@@ -39,9 +39,7 @@ import { environment } from '../environments/environment';
     EffectsModule.forRoot([LoadHappeningsEffectService]),
     !environment.production ? StoreDevtoolsModule.instrument({maxAge: 25}) : []
   ],
-  providers: [
-    HappeningsService
-  ],
-  bootstrap: [AppComponent]
+  providers: [ HappeningsService ],
+  bootstrap: [ AppComponent ]
 })
 export class AppModule { }

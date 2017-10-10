@@ -20,6 +20,8 @@ describe('HappeningCardComponent', () => {
   });
 
   it('should create', () => {
-    expect(component).toBeTruthy();
+    fixture.whenStable().then(() => {
+      expect(component).toBeTruthy();
+    });
   });
 });

@@ -2,8 +2,8 @@
   <div class="panel-heading">
     {{happening.eventName}}
     <div class="pull-right">
-      <label>Tix: </label>
-      <span [ngClass]="{ 'text-danger': isHappeningSoldOut() }">
+      <label>Tix:</label>
+      <span [ngClass]="{ 'text-danger': isSoldOut() }">
         {{isNumeric(happening.ticketPrices) ? (happening.ticketPrices | currency: 'USD':true:'1.2-2') : (happening.ticketPrices)}}
       </span>
     </div>
@@ -13,7 +13,7 @@
       <label>Venue: </label><span>{{happening.venueName}}</span>
       <br>
       <label>Show Date: </label><span>{{happening.showDate | date:"fullDate"}}</span>
-      <div *ngIf="!happening.showEndDate">
+      <div *ngIf="!happening.showEndDate && happening.showTime">
         <label>Start Time: </label><span>{{happening.showTime}} </span>
       </div>
       <div *ngIf="happening.showEndDate">

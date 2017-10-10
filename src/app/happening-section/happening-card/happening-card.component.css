@@ -8,6 +8,6 @@
   font-weight: bold;
 }
 
-label {
+.panel > label {
   margin-right: 8px;
 }

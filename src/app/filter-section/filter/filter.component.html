@@ -1,43 +1,46 @@
-<div class="form form-inline">
+<form action="">
 
-  <div class="form-group uni-search">
-    <input type="text" class="form-control" [formControl]="searchFor" placeholder="Search&hellip;">
-  </div>
+  <div class="form form-inline">
 
-  <!-- TODO: Show filter-controls div when the uni-search has focus -->
+    <div class="form-group uni-search">
+      <input type="text" class="form-control" [formControl]="searchFor" placeholder="Search&hellip;">
+    </div>
 
-  <div class="collapse" id="filter-controls-panel">
-    <div class="form-group filter-controls">
-      <div class="form-control">
-        <label for="venue-select">Venue: </label>
-        <select id="venue-select">
-          <option *ngFor="let v of venues" [ngValue]="v" value="v">{{v.name}}</option>
-        </select>
-      </div>
+    <!-- TODO: Show filter-controls div when the uni-search has focus -->
 
-      <div class="form-control">
-        <label for="location-select">Location: </label>
-        <select id="location-select">
-          <option *ngFor="let l of locations" value="l">{{locationName(l)}}</option>
-        </select>
-      </div>
-
-      <div class="form-control">
-        <label for="artist-select">Artist: </label>
-        <select id="artist-select">
-          <option *ngFor="let a of artists" value="a">{{a.name}}</option>
-        </select>
-      </div>
-      <div class="form-group">
+    <div class="collapse" id="filter-controls-panel">
+      <div class="form-group filter-controls">
         <div class="form-control">
-          <div class="btn-group btn-group-xs radio">
-            <button class="btn-success btn-xs">Anytime</button>
-            <button class="btn-xs">Today</button>
-            <button class="btn-xs">This Week</button>
-            <button class="btn-xs">This Month</button>
+          <label for="venue-select">Venue: </label>
+          <select id="venue-select">
+            <option *ngFor="let v of venues" value="v">{{v.name}}</option>
+          </select>
+        </div>
+
+        <div class="form-control">
+          <label for="location-select">Location: </label>
+          <select id="location-select">
+            <option *ngFor="let l of locations" value="l">{{locationName(l)}}</option>
+          </select>
+        </div>
+
+        <div class="form-control">
+          <label for="artist-select">Artist: </label>
+          <select id="artist-select">
+            <option *ngFor="let a of artists" value="a">{{a.name}}</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <div class="form-control">
+            <div class="btn-group btn-group-xs radio">
+              <button class="btn-success btn-xs">Anytime</button>
+              <button class="btn-xs">Today</button>
+              <button class="btn-xs">This Week</button>
+              <button class="btn-xs">This Month</button>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-</div>
+</form>
