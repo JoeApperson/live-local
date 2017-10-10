@@ -12,5 +12,9 @@
         </li>
       </ul>
     </div>
+    <div *ngIf="!happenings || happenings.length < 1">
+      <p *ngIf="loadingData">Loading the list...</p>
+      <p *ngIf="!loadingData">Nothing to show.</p>
+    </div>
   </div>
 </div>

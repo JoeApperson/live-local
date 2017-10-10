@@ -17,12 +17,17 @@ export class HappeningSectionComponent implements OnInit {
 
   happenings$: Observable<HappeningVM[]> = Observable.empty();
   visibleHappenings$: Observable<Array<number>>;
+  // TODO: Get this from the store
+  isLoading$: Observable<boolean> = Observable.of(false);
+
   happeningsToShow: HappeningVM[] = [];
 
   constructor(private store: Store<ApplicationState>) {
     this.happenings$ = store.select(stateToHappeningSummariesSelector);
     this.visibleHappenings$ = store.select(stateToVisibleHappeningsSelector);
 
+    // This is an observable of visibleHappenings$ that filters happenings$ so only those matching the user's filter
+    // conditions are included on the happenings list.
     this.visibleHappenings$.combineLatest(
       this.happenings$,
       (visible, happenings) => {
@@ -35,7 +40,6 @@ export class HappeningSectionComponent implements OnInit {
   ngOnInit() {
     const DEFAULT_REGION = 'DC';
     this.store.dispatch(new SelectRegionAction(DEFAULT_REGION));
-
   }
 
 }

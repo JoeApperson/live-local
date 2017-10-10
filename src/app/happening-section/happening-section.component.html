@@ -1,1 +1,4 @@
-<lilo-happening-list [happenings]="happeningsToShow"></lilo-happening-list>
+<lilo-happening-list
+  [happenings]="happeningsToShow"
+  [loadingData]="isLoading$ | async">
+</lilo-happening-list>

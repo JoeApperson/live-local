@@ -1,22 +1,27 @@
-<div class="panel form-horizontal">
+<div class="panel">
   <div class="panel-heading">
     {{happening.eventName}}
     <div class="pull-right">
-      <label>Tix:</label> <span [ngClass]="{ 'text-danger': isHappeningSoldOut() }">{{happening.ticketPrices}}</span>
+      <label>Tix: </label>
+      <span [ngClass]="{ 'text-danger': isHappeningSoldOut() }">
+        {{isNumeric(happening.ticketPrices) ? (happening.ticketPrices | currency: 'USD':true:'1.2-2') : (happening.ticketPrices)}}
+      </span>
     </div>
   </div>
   <div class="panel-body">
-    <label>Venue:</label> <span>{{happening.venueName}}</span>
-    <br>
-    <label>Show Date:</label> <span>{{happening.showDate | date:"fullDate"}}</span>
-    <div *ngIf="!happening.showEndDate">
-      <label>Start Time:</label> <span>{{happening.showTime}} </span>
-    </div>
-    <div *ngIf="happening.showEndDate">
-      <label>End Date:</label> <span>{{happening.showEndDate | date:"fullDate"}}</span>
-    </div>
-    <div class="pull-right extra-info" *ngIf="happening.featuring">
-      <span>{{happening.featuring}}</span>
+    <div class="form form-horizontal">
+      <label>Venue: </label><span>{{happening.venueName}}</span>
+      <br>
+      <label>Show Date: </label><span>{{happening.showDate | date:"fullDate"}}</span>
+      <div *ngIf="!happening.showEndDate">
+        <label>Start Time: </label><span>{{happening.showTime}} </span>
+      </div>
+      <div *ngIf="happening.showEndDate">
+        <label>End Date: </label><span>{{happening.showEndDate | date:"fullDate"}}</span>
+      </div>
+      <div class="pull-right extra-info" *ngIf="happening.featuring">
+        <span>{{happening.featuring}}</span>
+      </div>
     </div>
   </div>
 </div>

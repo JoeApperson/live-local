@@ -31,7 +31,9 @@ export class FilterComponent implements OnDestroy {
   constructor() {
     this.formSubs.push(
       this.searchFor.valueChanges
-        .subscribe(n => this.searchChange.emit(n))
+        .debounceTime(500)
+        .distinctUntilChanged()
+        .subscribe(s => this.searchChange.emit(s))
     );
   }
 

@@ -37,19 +37,16 @@ function handleRegionHappeningsLoadedAction(state: StoreData, action: RegionHapp
 function handleSearchHappeningsAction(state: StoreData, action: SearchHappeningsAction): StoreData {
   const newState = Object.assign({}, state);
   const visibleHappenings: Array<number> = [];
+  const term = action.searchTerm.toUpperCase();
 
   values<Happening>(state.happenings).forEach(h => {
     if (!action.searchTerm || action.searchTerm === '') {
       visibleHappenings.push(h.id);
-    }
-    const term = action.searchTerm.toUpperCase();
-    if (h.venueName.toUpperCase().includes(term)) {
+    } else if (h.venueName.toUpperCase().includes(term)) {
       visibleHappenings.push(h.id);
-    }
-    if (h.eventName.toUpperCase().includes(term)) {
+    } else if (h.eventName.toUpperCase().includes(term)) {
       visibleHappenings.push(h.id);
-    }
-    if (h.featuring && h.featuring.toUpperCase().includes(term)) {
+    } else if (h.featuring && h.featuring.toUpperCase().includes(term)) {
       visibleHappenings.push(h.id);
     }
   });

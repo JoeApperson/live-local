@@ -10,6 +10,8 @@ export class HappeningListComponent implements OnInit {
 
   @Input()
   happenings: HappeningVM[] = [];
+  @Input()
+  loadingData: boolean;
 
   constructor() { }
 
