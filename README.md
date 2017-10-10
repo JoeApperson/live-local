@@ -1,7 +1,9 @@
 # Live Local
-This is a sample application developed using Angular 4, @ngrx/store. It was devised mostly as a learning experience. It is currently undergoing active development, so it changes frequently.
+This is a sample application developed using Angular 4, @ngrx/store. It was devised mostly as a learning experience. It is currently undergoing active development, so expect frequent updates.
 
 The project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.4.3.
+
+You can find a usable demo instance of this app [here](http://livloc.thefarmgarden.com)
 
 ## Development server
 
@@ -13,7 +15,11 @@ Run `ng generate component component-name` to generate a new component. You can 
 
 ## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+Run `ng build` to build the project. The build artifacts are stored in the `dist/` directory.
+
+## Build
+
+Run `ng build:prod` to build the project for a production server (-prod -aot). The build artifacts are stored in the `dist/` directory..
 
 ## Running unit tests
 
