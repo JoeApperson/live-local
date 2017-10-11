@@ -18,16 +18,14 @@ export class HappeningSectionComponent implements OnInit {
   happenings$: Observable<HappeningVM[]> = Observable.empty();
   visibleHappenings$: Observable<Array<number>>;
   selectedID$: Observable<number>;
-
-  // TODO: Get this from the store
-  isLoading$: Observable<boolean> = Observable.of(false);
-
+  isLoading$: Observable<boolean>;
   happeningsToShow: HappeningVM[] = [];
 
   constructor(private store: Store<ApplicationState>) {
     this.happenings$ = store.select(stateToHappeningSummariesSelector);
     this.visibleHappenings$ = store.select(stateToVisibleHappeningsSelector);
     this.selectedID$ = store.select(state => state.uiState.selectedHappeningID);
+    this.isLoading$ = store.select(state => state.uiState.isDataLoading);
 
     // This is an observable of visibleHappenings$ that filters happenings$ so only those matching the user's filter
     // conditions are included on the happenings list.

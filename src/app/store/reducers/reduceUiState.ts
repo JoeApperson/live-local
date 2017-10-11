@@ -1,6 +1,7 @@
 import { Action } from '@ngrx/store';
 import { INITIAL_UI_STATE, UiState } from '../uiState';
 import {
+  LOAD_REGION_HAPPENINGS_ACTION, REGION_HAPPENINGS_LOADED_ACTION,
   SEARCH_HAPPENINGS_ACTION, SearchHappeningsAction, SELECT_HAPPENING_ACTION, SELECT_REGION_ACTION,
   SelectHappeningAction,
   SelectRegionAction
@@ -8,6 +9,10 @@ import {
 
 export function reduceUiState(state: UiState = INITIAL_UI_STATE, action: Action): UiState {
   switch (action.type) {
+    case LOAD_REGION_HAPPENINGS_ACTION:
+      return handleLoadRegionHappeningsAction(state, action);
+    case REGION_HAPPENINGS_LOADED_ACTION:
+      return handleRegionHappeningsLoadedAction(state, action);
     case SELECT_REGION_ACTION:
       return handleSelectRegionAction(state, <SelectRegionAction>action);
     case SEARCH_HAPPENINGS_ACTION:
@@ -17,6 +22,14 @@ export function reduceUiState(state: UiState = INITIAL_UI_STATE, action: Action)
     default:
       return state;
   }
+}
+
+function handleLoadRegionHappeningsAction(state: UiState, _action: Action): UiState {
+  return Object.assign({}, state, { isDataLoading: true });
+}
+
+function handleRegionHappeningsLoadedAction(state: UiState, _action: Action): UiState {
+  return Object.assign({}, state, { isDataLoading: false });
 }
 
 function handleSelectRegionAction(state: UiState, action: SelectRegionAction): UiState {
