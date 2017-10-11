@@ -10,9 +10,9 @@ import {
 export function reduceUiState(state: UiState = INITIAL_UI_STATE, action: Action): UiState {
   switch (action.type) {
     case LOAD_REGION_HAPPENINGS_ACTION:
-      return handleLoadRegionHappeningsAction(state, action);
+      return Object.assign({}, state, { isDataLoading: true });
     case REGION_HAPPENINGS_LOADED_ACTION:
-      return handleRegionHappeningsLoadedAction(state, action);
+      return Object.assign({}, state, { isDataLoading: false });
     case SELECT_REGION_ACTION:
       return handleSelectRegionAction(state, <SelectRegionAction>action);
     case SEARCH_HAPPENINGS_ACTION:
@@ -22,14 +22,6 @@ export function reduceUiState(state: UiState = INITIAL_UI_STATE, action: Action)
     default:
       return state;
   }
-}
-
-function handleLoadRegionHappeningsAction(state: UiState, _action: Action): UiState {
-  return Object.assign({}, state, { isDataLoading: true });
-}
-
-function handleRegionHappeningsLoadedAction(state: UiState, _action: Action): UiState {
-  return Object.assign({}, state, { isDataLoading: false });
 }
 
 function handleSelectRegionAction(state: UiState, action: SelectRegionAction): UiState {

@@ -1,22 +1,22 @@
 <div class="panel panel-info" [ngClass]="{ 'active': isSelected() }">
   <div class="panel-heading" (click)="selectHappening(happening)">
-    {{happening.eventName}}
+    {{happening?.eventName}}
     <div class="pull-right">
-      <span [ngClass]="{ 'text-danger': isSoldOut() }">{{happening.ticketPrices}}</span>
+      <span [ngClass]="{ 'text-danger': isSoldOut() }">{{happening?.ticketPrices}}</span>
     </div>
   </div>
   <div class="panel-body">
     <div class="form form-horizontal">
-      <label>Venue: </label><span>{{happening.venueName}}</span>
+      <label>Venue: </label><span>{{happening?.venueName}}</span>
       <br>
-      <label>Show Date: </label><span>{{happening.showDate | date:"fullDate"}}</span>
-      <div *ngIf="!happening.showEndDate && !!happening.showTime">
-        <label>Start Time: </label><span>{{happening.showTime}} </span>
+      <label>Show Date: </label><span>{{happening?.showDate | date:"fullDate"}}</span>
+      <div *ngIf="!isMultiDay()">
+        <label>Start Time: </label><span>{{happening?.showTime}} </span>
       </div>
-      <div *ngIf="happening.showEndDate">
+      <div *ngIf="isMultiDay()">
         <label>End Date: </label><span>{{happening.showEndDate | date:"fullDate"}}</span>
       </div>
-      <div class="pull-right extra-info" *ngIf="happening.featuring">
+      <div class="pull-right extra-info" *ngIf="happening?.featuring">
         <span>{{happening.featuring}}</span>
       </div>
     </div>

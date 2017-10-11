@@ -23,6 +23,12 @@ function handleRegionHappeningsLoadedAction(state: StoreData, action: RegionHapp
   const data = action.payload;
   const currentDate = moment();
 
+  // If no data was loaded
+  if (!data || !data.happenings) {
+    return Object.assign({}, state, INITIAL_STORE_DATA);
+  }
+
+  // Build an object map of the current and future happenings
   const happenings = data.happenings.filter((h) =>
     (currentDate.isSameOrBefore(h.showDate, 'date')) ||
     (h.showEndDate && currentDate.isSameOrBefore(h.showEndDate, 'date')));

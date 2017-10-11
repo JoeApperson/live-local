@@ -13,7 +13,7 @@ describe('SidebarComponent', () => {
 
   beforeEach(async(() => {
 
-    const UI_STATE: UiState = { currentRegionId: 'LA', searchTerm: undefined, userId: undefined };
+    const UI_STATE: UiState = { currentRegionId: 'LA', searchTerm: undefined, userId: undefined, isDataLoading: false };
 
     TestBed.configureTestingModule({
       declarations: [ SidebarComponent ],

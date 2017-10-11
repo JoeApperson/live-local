@@ -31,4 +31,8 @@ export class HappeningCardComponent implements OnInit {
   isSelected(): boolean {
     return (this.happening && this.happening.id === this.selectedID);
   }
+
+  isMultiDay(): boolean {
+    return this.happening && this.happening.showEndDate !== undefined;
+  }
 }

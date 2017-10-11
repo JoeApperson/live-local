@@ -12,7 +12,7 @@ export class HappeningsService {
   // There is only one region for now (DC), but there might be others in the future.
   getHappenings(region: string): Observable<AllRegionData> {
 
-    // TODO: Get this from an api REST endpoint
+    // TODO: Get this from a REST endpoint like /api/happenings?region=DC
     return this.http.get('/assets/happenings.json')
       .map(response => response.json());
   }

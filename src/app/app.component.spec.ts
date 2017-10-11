@@ -68,7 +68,7 @@ describe('AppComponent', () => {
     fixture.detectChanges();
     fixture.whenStable().then(() => {
       const compiled = fixture.debugElement.nativeElement;
-      expect(compiled.querySelector('h1').textContent).toContain('Welcome to Live Local');
+      expect(compiled.querySelector('h1').textContent).toContain('Live Local');
     });
   }));
 });
