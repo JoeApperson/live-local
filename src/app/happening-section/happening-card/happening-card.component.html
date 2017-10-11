@@ -1,11 +1,9 @@
-<div class="panel panel-info" [ngClass]="{'active': happening.id === selectedID}">
+<div class="panel panel-info" [ngClass]="{ 'active': isSelected() }">
   <div class="panel-heading" (click)="selectHappening(happening)">
     {{happening.eventName}}
     <div class="pull-right">
-      <label>Tix:</label>
-      <span [ngClass]="{ 'text-danger': isSoldOut() }">
-        {{isNumeric(happening.ticketPrices) ? (happening.ticketPrices | currency: 'USD':true:'1.2-2') : (happening.ticketPrices)}}
-      </span>
+      <label>Tix: </label>
+      <span [ngClass]="{ 'text-danger': isSoldOut() }">{{happening.ticketPrices}}</span>
     </div>
   </div>
   <div class="panel-body">
@@ -13,7 +11,7 @@
       <label>Venue: </label><span>{{happening.venueName}}</span>
       <br>
       <label>Show Date: </label><span>{{happening.showDate | date:"fullDate"}}</span>
-      <div *ngIf="!happening.showEndDate && happening.showTime">
+      <div *ngIf="!happening.showEndDate && !!happening.showTime">
         <label>Start Time: </label><span>{{happening.showTime}} </span>
       </div>
       <div *ngIf="happening.showEndDate">

@@ -25,10 +25,10 @@ export class HappeningCardComponent implements OnInit {
   }
 
   isSoldOut(): boolean {
-    return this.happening && this.happening.ticketPrices === 'SOLD OUT';
+    return (this.happening && this.happening.ticketPrices === 'SOLD OUT');
   }
 
-  isNumeric(p: any): boolean {
-    return p !== undefined && p !== '' && p !== false && !isNaN(p - 0);
+  isSelected(): boolean {
+    return (this.happening && this.happening.id === this.selectedID);
   }
 }

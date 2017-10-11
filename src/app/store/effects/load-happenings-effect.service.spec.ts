@@ -8,7 +8,7 @@ import { LoadHappeningsEffectService } from './load-happenings-effect.service';
 import { HappeningsService } from '../../services/happenings.service';
 
 describe('LoadHappeningsEffectService', () => {
-  let actions: Observable<any>;
+  const actions: Observable<any> = Observable.empty();
 
   beforeEach(() => {
     TestBed.configureTestingModule({
