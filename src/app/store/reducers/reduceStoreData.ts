@@ -19,7 +19,7 @@ export function reduceStoreData(state: StoreData = INITIAL_STORE_DATA, action: A
   }
 }
 
-function handleRegionHappeningsLoadedAction(state: StoreData, action: RegionHappeningsLoadedAction): StoreData {
+export function handleRegionHappeningsLoadedAction(state: StoreData, action: RegionHappeningsLoadedAction): StoreData {
   const data = action.payload;
   const currentDate = moment();
 
@@ -39,7 +39,7 @@ function handleRegionHappeningsLoadedAction(state: StoreData, action: RegionHapp
   });
 }
 
-function handleSearchHappeningsAction(state: StoreData, action: SearchHappeningsAction): StoreData {
+export function handleSearchHappeningsAction(state: StoreData, action: SearchHappeningsAction): StoreData {
   const newState = Object.assign({}, state);
   const visibleHappenings: Array<number> = [];
   const term = action.searchTerm.toUpperCase();
