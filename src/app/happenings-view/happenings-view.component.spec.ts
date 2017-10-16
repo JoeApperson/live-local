@@ -1,7 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-import { HomeComponent } from './home.component';
+import { HappeningsViewComponent } from './happenings-view.component';
 import { FilterSectionComponent } from '../filter-section/filter-section.component';
 import { HappeningSectionComponent } from '../happening-section/happening-section.component';
 import { SidebarComponent } from '../sidebar/sidebar.component';
@@ -10,19 +10,19 @@ import { HappeningListComponent } from '../happening-section/happening-list/happ
 import { FilterComponent } from '../filter-section/filter/filter.component';
 import { Store } from '@ngrx/store';
 import { MockStore } from '../store/mockStore';
-import { ApplicationState } from '../store/appState';
+import { ApplicationState, INITIAL_APPLICATION_STATE } from '../store/appState';
 import { INITIAL_STORE_DATA } from '../store/storeData';
 import { INITIAL_UI_STATE } from '../store/uiState';
 
 describe('HomeComponent', () => {
-  let component: HomeComponent;
-  let fixture: ComponentFixture<HomeComponent>;
+  let component: HappeningsViewComponent;
+  let fixture: ComponentFixture<HappeningsViewComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [ReactiveFormsModule, FormsModule],
       declarations: [
-        HomeComponent,
+        HappeningsViewComponent,
         FilterSectionComponent,
         FilterComponent,
         HappeningSectionComponent,
@@ -32,7 +32,7 @@ describe('HomeComponent', () => {
       ],
       providers: [
         { provide: Store,
-          useValue: new MockStore<ApplicationState>({ storeData: INITIAL_STORE_DATA, uiState: INITIAL_UI_STATE })
+          useValue: new MockStore<ApplicationState>(INITIAL_APPLICATION_STATE)
         }
       ]
     })
@@ -40,7 +40,7 @@ describe('HomeComponent', () => {
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(HomeComponent);
+    fixture = TestBed.createComponent(HappeningsViewComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

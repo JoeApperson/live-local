@@ -5,7 +5,7 @@ import { FilterComponent } from './filter/filter.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MockStore } from '../store/mockStore';
 import { Store } from '@ngrx/store';
-import { ApplicationState } from '../store/appState';
+import { ApplicationState, INITIAL_APPLICATION_STATE } from '../store/appState';
 import { INITIAL_STORE_DATA } from '../store/storeData';
 import { INITIAL_UI_STATE } from '../store/uiState';
 
@@ -19,7 +19,7 @@ describe('FilterSectionComponent', () => {
       declarations: [FilterSectionComponent, FilterComponent],
       providers: [
         { provide: Store,
-          useValue: new MockStore<ApplicationState>({ storeData: INITIAL_STORE_DATA, uiState: INITIAL_UI_STATE })
+          useValue: new MockStore<ApplicationState>(INITIAL_APPLICATION_STATE)
         }
       ]
     })

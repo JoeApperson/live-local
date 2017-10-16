@@ -5,7 +5,7 @@ import { HappeningCardComponent } from './happening-card/happening-card.componen
 import { HappeningListComponent } from './happening-list/happening-list.component';
 import { Store } from '@ngrx/store';
 import { MockStore } from '../store/mockStore';
-import { ApplicationState } from '../store/appState';
+import { ApplicationState, INITIAL_APPLICATION_STATE } from '../store/appState';
 import { INITIAL_STORE_DATA, StoreData } from '../store/storeData';
 import { INITIAL_UI_STATE } from '../store/uiState';
 import { stateToHappeningSummariesSelector } from './stateToHappeningSummary';
@@ -23,7 +23,7 @@ describe('HappeningSectionComponent', () => {
         ],
       providers: [
         { provide: Store,
-          useValue: new MockStore<ApplicationState>({ storeData: INITIAL_STORE_DATA, uiState: INITIAL_UI_STATE })
+          useValue: new MockStore<ApplicationState>(INITIAL_APPLICATION_STATE)
         }
       ]
     })
@@ -69,6 +69,7 @@ describe('HappeningSectionComponent', () => {
 
     const state = {
       uiState: INITIAL_UI_STATE,
+      router: undefined,
       storeData
     };
 
