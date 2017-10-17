@@ -15,6 +15,7 @@ import { FilterComponent } from './filter-section/filter/filter.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterTestingModule } from '@angular/router/testing';
 import { NavbarComponent } from './navbar/navbar.component';
+import { NoticesComponent } from './notices/notices.component';
 
 describe('AppComponent', () => {
   const APP_TITLE = 'Live Local';
@@ -36,7 +37,8 @@ describe('AppComponent', () => {
         HappeningListComponent,
         HappeningCardComponent,
         SidebarComponent,
-        NavbarComponent
+        NavbarComponent,
+        NoticesComponent
       ],
       providers: [
         { provide: Store,

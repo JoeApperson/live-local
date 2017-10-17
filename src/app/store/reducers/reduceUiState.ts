@@ -1,6 +1,9 @@
 import { Action } from '@ngrx/store';
+
 import { INITIAL_UI_STATE, UiState } from '../uiState';
 import {
+  ERROR_OCCURRED_ACTION,
+  ErrorOccurredAction,
   LOAD_REGION_HAPPENINGS_ACTION, REGION_HAPPENINGS_LOADED_ACTION,
   SEARCH_HAPPENINGS_ACTION, SearchHappeningsAction, SELECT_HAPPENING_ACTION, SELECT_REGION_ACTION,
   SelectHappeningAction,
@@ -19,6 +22,8 @@ export function reduceUiState(state: UiState = INITIAL_UI_STATE, action: Action)
       return handleSearchHappeningsAction(state, <SearchHappeningsAction>action);
     case SELECT_HAPPENING_ACTION:
       return handleSelectHappeningAction(state, <SelectHappeningAction>action);
+    case ERROR_OCCURRED_ACTION:
+      return handleErrorOccurredAction(state, <ErrorOccurredAction>action);
     default:
       return state;
   }
@@ -34,4 +39,9 @@ function handleSearchHappeningsAction(state: UiState, action: SearchHappeningsAc
 
 function handleSelectHappeningAction(state: UiState, action: SelectHappeningAction): UiState {
   return Object.assign({}, state, { selectedHappeningID: action.happening.id });
+}
+
+function handleErrorOccurredAction(state: UiState, action: ErrorOccurredAction): UiState {
+  const lastErrorMessage = action.payload + (action.errorDetails ? '\n' + action.errorDetails : '');
+  return Object.assign({}, state, { lastErrorMessage });
 }

@@ -1,6 +1,11 @@
 import { Action } from '@ngrx/store';
-import { AllRegionData } from '../shared/to/all-region-data';
+
+import { AllRegionData } from '../../shared/to/all-region-data';
 import { HappeningVM } from '../happening-section/happening.vm';
+import { LiMASearchResponse } from '../../shared/to/lima-search-results';
+
+
+// TODO: Organize the actions using enums ... UiStateActions, StoreDataActions, etc.
 
 export const SELECT_REGION_ACTION = 'SELECT_REGION_ACTION';
 export class SelectRegionAction implements Action {
@@ -35,5 +40,26 @@ export class SelectHappeningAction implements Action {
   readonly type = SELECT_HAPPENING_ACTION;
 
   constructor(public happening: HappeningVM) { }
+}
+
+export const LOAD_THIS_DAYS_SHOWS_ACTION = 'LOAD_THIS_DAYS_SHOWS_ACTION';
+export class LoadThisDaysShowsAction implements Action {
+  readonly type = LOAD_THIS_DAYS_SHOWS_ACTION;
+
+  constructor() { }
+}
+
+export const THIS_DAYS_SHOWS_LOADED_ACTION = 'THIS_DAYS_SHOWS_LOADED_ACTION';
+export class ThisDaysShowsLoadedAction implements Action {
+  readonly type = THIS_DAYS_SHOWS_LOADED_ACTION;
+
+  constructor(public payload: LiMASearchResponse) { }
+}
+
+export const ERROR_OCCURRED_ACTION = 'ERROR_OCCURRED_ACTION';
+export class ErrorOccurredAction implements Action {
+  readonly type = ERROR_OCCURRED_ACTION;
+
+  constructor (public payload: string, public errorDetails?: string) { }
 }
 

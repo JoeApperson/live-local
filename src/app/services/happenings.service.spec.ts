@@ -1,6 +1,7 @@
 import { MockBackend } from '@angular/http/testing';
 import {
-  BaseRequestOptions, ConnectionBackend, Http, RequestOptions} from '@angular/http';
+  BaseRequestOptions, ConnectionBackend, Http, RequestOptions
+} from '@angular/http';
 
 import { HappeningsService } from './happenings.service';
 import { ReflectiveInjector } from '@angular/core';
@@ -9,8 +10,8 @@ describe('HappeningsService', () => {
 
   beforeEach(() => {
     this.injector = ReflectiveInjector.resolveAndCreate([
-      {provide: ConnectionBackend, useClass: MockBackend},
-      {provide: RequestOptions, useClass: BaseRequestOptions},
+      { provide: ConnectionBackend, useClass: MockBackend },
+      { provide: RequestOptions, useClass: BaseRequestOptions },
       Http,
       HappeningsService,
     ]);

@@ -2,14 +2,14 @@ import { values, keys, partial, last, join} from 'lodash';
 
 import { ApplicationState } from '../store/appState';
 import { HappeningVM } from './happening.vm';
-import { Happening } from '../shared/models/happening';
+import { Happening } from '../../shared/models/happening';
 
 export function stateToHappeningSummariesSelector(state: ApplicationState): HappeningVM[] {
   const happenings = values<Happening>(state.storeData.happenings);
   return happenings.map(mapHappeningToHappeningSummary);
 }
 
-function mapHappeningToHappeningSummary(happ: Happening): HappeningVM {
+export function mapHappeningToHappeningSummary(happ: Happening): HappeningVM {
   const vm: HappeningVM = happ;
 
   // if the ticket price is a number, format it as currency, if it's missing, make it TBD.

@@ -5,6 +5,7 @@ export interface UiState {
   userId: string;
   isDataLoading: boolean;
   selectedHappeningID?: number;
+  lastErrorMessage?: string;
 }
 
 export const INITIAL_UI_STATE: UiState = {

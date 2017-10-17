@@ -1,5 +1,5 @@
 import { INITIAL_STORE_DATA, StoreData } from '../storeData';
-import { Happening } from '../../shared/models/happening';
+import { Happening } from '../../../shared/models/happening';
 import { RegionHappeningsLoadedAction, SearchHappeningsAction } from '../actions';
 import { handleRegionHappeningsLoadedAction, handleSearchHappeningsAction } from './reduceStoreData';
 import * as moment from 'moment';
@@ -42,6 +42,7 @@ describe('storeDataReducer', () => {
           featuring: null
         }
       },
+      limaShows: {},
       visibleHappenings: [1001]
     };
 
@@ -87,6 +88,7 @@ describe('storeDataReducer', () => {
           featuring: 'featuring The Infamous Shack Shakers'
         }
       },
+      limaShows: {},
       visibleHappenings: [1001, 1002, 1003]
     };
 

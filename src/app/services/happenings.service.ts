@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 
-import { AllRegionData } from '../shared/to/all-region-data';
+import { AllRegionData } from '../../shared/to/all-region-data';
 
 @Injectable()
 export class HappeningsService {

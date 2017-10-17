@@ -7,7 +7,7 @@ import { values } from 'lodash';
 
 import { SelectHappeningAction, SelectRegionAction } from '../store/actions';
 import { stateToHappeningSummariesSelector, stateToVisibleHappeningsSelector } from './stateToHappeningSummary';
-import { BaseSmartComponent } from '../shared/base-smart.component';
+import { BaseSmartComponent } from '../common/base-smart.component';
 
 @Component({
   selector: 'lilo-happening-section',
@@ -24,11 +24,15 @@ export class HappeningSectionComponent extends BaseSmartComponent implements OnI
 
   constructor(private store: Store<ApplicationState>) {
     super();
+  }
 
-    this.happenings$ = store.select(stateToHappeningSummariesSelector);
-    this.visibleHappenings$ = store.select(stateToVisibleHappeningsSelector);
-    this.selectedID$ = store.select(state => state.uiState.selectedHappeningID);
-    this.isLoading$ = store.select(state => state.uiState.isDataLoading);
+  ngOnInit() {
+    const DEFAULT_REGION = 'DC';
+
+    this.happenings$ = this.store.select(stateToHappeningSummariesSelector);
+    this.visibleHappenings$ = this.store.select(stateToVisibleHappeningsSelector);
+    this.selectedID$ = this.store.select(state => state.uiState.selectedHappeningID);
+    this.isLoading$ = this.store.select(state => state.uiState.isDataLoading);
 
     // This is an observable of visibleHappenings$ that filters happenings$ so only those matching the user's filter
     // conditions are included on the happenings list.
@@ -38,10 +42,7 @@ export class HappeningSectionComponent extends BaseSmartComponent implements OnI
         return happenings.filter(h => visible.indexOf(h.id) > -1);
       }
     ).subscribe(h => this.happeningsToShow = h));
-  }
 
-  ngOnInit() {
-    const DEFAULT_REGION = 'DC';
     this.store.dispatch(new SelectRegionAction(DEFAULT_REGION));
   }
 

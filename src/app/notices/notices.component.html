@@ -1,0 +1,9 @@
+<div *ngIf="notice" class="notices-frame">
+  <div class="notices notices-error">
+    <i (click)="close()" class="glyphicon glyphicon-remove">close</i>
+    <div class="notices-container">
+      <div>{{notice}}</div>
+    </div>
+  </div>
+
+</div>

@@ -4,7 +4,7 @@ import { FormControl } from '@angular/forms';
 import { VenueVM } from '../venue.vm';
 import { ArtistVM } from '../artist.vm';
 import { LocationVM } from '../location.vm';
-import { BaseSmartComponent } from '../../shared/base-smart.component';
+import { BaseSmartComponent } from '../../common/base-smart.component';
 
 @Component({
   selector: 'lilo-filter',

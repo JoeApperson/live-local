@@ -6,6 +6,7 @@ import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { RouterModule } from '@angular/router';
+import { StoreRouterConnectingModule } from '@ngrx/router-store';
 
 import { AppComponent } from './app.component';
 import { HappeningsViewComponent } from './happenings-view/happenings-view.component';
@@ -20,16 +21,21 @@ import { FilterComponent } from './filter-section/filter/filter.component';
 import { LoadHappeningsEffectService } from './store/effects/load-happenings-effect.service';
 import { environment } from '../environments/environment';
 import { AboutComponent } from './about/about.component';
-import { StoreRouterConnectingModule } from '@ngrx/router-store';
 import { routes } from './app.routes';
 import { ThisDayViewComponent } from './this-day-view/this-day-view.component';
 import { NavbarComponent } from './navbar/navbar.component';
-import { BaseSmartComponent } from './shared/base-smart.component';
+import { TodaysHappeningsComponent } from './this-day-view/todays-happenings/todays-happenings.component';
+import { TodaysLimaComponent } from './this-day-view/todays-lima/todays-lima.component';
+import { LoadLiMaEffectService } from './store/effects/load-li-ma-effect.service';
+import { LiMaService } from './services/li-ma.service';
+import { NoticesComponent } from './notices/notices.component';
+
+
+// TODO: Consider breaking this into smaller lazy loaded modules instead of using one big one.
 
 @NgModule({
   declarations: [
     AppComponent,
-    BaseSmartComponent,
     HappeningsViewComponent,
     FilterSectionComponent,
     HappeningSectionComponent,
@@ -39,7 +45,10 @@ import { BaseSmartComponent } from './shared/base-smart.component';
     SidebarComponent,
     FilterComponent,
     AboutComponent,
-    ThisDayViewComponent
+    ThisDayViewComponent,
+    TodaysHappeningsComponent,
+    TodaysLimaComponent,
+    NoticesComponent
   ],
   imports: [
     BrowserModule,
@@ -49,10 +58,16 @@ import { BaseSmartComponent } from './shared/base-smart.component';
     RouterModule.forRoot(routes, { useHash: false }),
     StoreRouterConnectingModule,
     StoreModule.forRoot(reducers),
-    EffectsModule.forRoot([LoadHappeningsEffectService]),
+    EffectsModule.forRoot([
+      LoadHappeningsEffectService,
+      LoadLiMaEffectService
+    ]),
     !environment.production ? StoreDevtoolsModule.instrument({ maxAge: 25 }) : []
   ],
-  providers: [ HappeningsService ],
+  providers: [
+    HappeningsService,
+    LiMaService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

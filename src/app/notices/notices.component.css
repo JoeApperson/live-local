@@ -1,0 +1,9 @@
+.notices-frame {
+  background-color: palevioletred;
+  color: darkred;
+  min-height: 40px;
+}
+
+.notices-container {
+  margin: 4px;
+}

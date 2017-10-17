@@ -1,16 +1,21 @@
 import { TestBed, inject } from '@angular/core/testing';
-import { BaseRequestOptions, Http, HttpModule } from '@angular/http';
 import { MockBackend } from '@angular/http/testing';
+import { BaseRequestOptions, Http, HttpModule } from '@angular/http';
 import { provideMockActions } from '@ngrx/effects/testing';
 import { Observable } from 'rxjs/Observable';
 
-import { LoadHappeningsEffectService } from './load-happenings-effect.service';
-import { HappeningsService } from '../../services/happenings.service';
+import { LoadLiMaEffectService } from './load-li-ma-effect.service';
+import { LiMaService } from '../../services/li-ma.service';
 
-describe('LoadHappeningsEffectService', () => {
+describe('LoadLiMaEffectService', () => {
   const actions: Observable<any> = Observable.empty(); // TODO: This needs typing
 
   beforeEach(() => {
+    TestBed.configureTestingModule({
+      providers: [LoadLiMaEffectService]
+    });
+
+
     TestBed.configureTestingModule({
       imports: [HttpModule],
       providers: [
@@ -19,16 +24,16 @@ describe('LoadHappeningsEffectService', () => {
         {
           provide: Http,
           useFactory: (backend, options) => new Http(backend, options),
-          deps: [ MockBackend, BaseRequestOptions ]
+          deps: [MockBackend, BaseRequestOptions]
         },
-        HappeningsService,
-        LoadHappeningsEffectService,
+        LiMaService,
+        LoadLiMaEffectService,
         provideMockActions(() => actions)
       ]
     });
   });
 
-  it('should be created', inject([LoadHappeningsEffectService], (service: LoadHappeningsEffectService) => {
+  it('should be created', inject([LoadLiMaEffectService], (service: LoadLiMaEffectService) => {
     expect(service).toBeTruthy();
   }));
 });

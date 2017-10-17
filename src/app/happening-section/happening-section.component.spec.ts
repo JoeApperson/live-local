@@ -64,7 +64,8 @@ describe('HappeningSectionComponent', () => {
           featuring: null
         }
       },
-      visibleHappenings: []
+      visibleHappenings: [],
+      limaShows: {}
     };
 
     const state = {

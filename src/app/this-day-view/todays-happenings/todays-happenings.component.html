@@ -1,0 +1,16 @@
+<h2>Today's Happenings</h2>
+<div class="well well-sm">
+  <ul class="media-list">
+    <li *ngFor="let h of happenings" class="media">
+      <div class="media-left">
+        <img src="assets/music-notes-sm.jpg" class="media-object img-circle" alt="Sample Image">
+      </div>
+      <div class="media-body">
+        <h4 class="media-heading">{{h.eventName}}</h4>
+        {{h.venueName}}
+        {{h.showTime}}
+        <div class="media-bottom">{{h.ticketPrices}}</div>
+      </div>
+    </li>
+  </ul>
+</div>

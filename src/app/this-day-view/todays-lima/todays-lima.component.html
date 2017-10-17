@@ -1,0 +1,13 @@
+<h2>From the Archives</h2>
+<div class="well well-sm">
+  <div *ngIf="!shows || shows.length < 1">
+    Loading...
+  </div>
+  <div *ngIf="shows?.length > 0">
+    <ul class="list list-unstyled">
+      <li class="small" *ngFor="let s of shows">
+        <a href="{{s.href}}">{{s.title}}</a>
+      </li>
+    </ul>
+  </div>
+</div>

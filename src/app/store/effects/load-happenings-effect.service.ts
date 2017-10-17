@@ -4,9 +4,11 @@ import { Action } from '@ngrx/store';
 import { Observable } from 'rxjs/Observable';
 
 import { HappeningsService } from '../../services/happenings.service';
+import { LOAD_HAPPENINGS_ERROR_NOTICE } from '../../common/error-notices';
 import {
-  LOAD_REGION_HAPPENINGS_ACTION, LoadRegionHappeningsAction, RegionHappeningsLoadedAction, SELECT_REGION_ACTION,
-  SelectRegionAction
+ErrorOccurredAction,
+LOAD_REGION_HAPPENINGS_ACTION, LoadRegionHappeningsAction, RegionHappeningsLoadedAction, SELECT_REGION_ACTION,
+SelectRegionAction
 } from '../actions';
 
 
@@ -19,9 +21,7 @@ export class LoadHappeningsEffectService {
     .ofType(LOAD_REGION_HAPPENINGS_ACTION)
     .switchMap(action => this.hs.getHappenings((action as LoadRegionHappeningsAction).region))
     .map(data => new RegionHappeningsLoadedAction(data))
-    // TODO: Add some error handling
-    // .catch((err) => Observable.of(new ErrorOccurredAction(LOAD_REGION_HAPPENINGS_ERROR_NOTICE, err.message)))
-  ;
+    .catch((err) => Observable.of(new ErrorOccurredAction(LOAD_HAPPENINGS_ERROR_NOTICE, err.message)));
 
   @Effect()
   regionSelected$: Observable<Action> = this.actions$

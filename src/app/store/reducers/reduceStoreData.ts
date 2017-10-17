@@ -3,10 +3,12 @@ import { keyBy, keys, values } from 'lodash';
 import * as moment from 'moment';
 
 import {
-  REGION_HAPPENINGS_LOADED_ACTION, RegionHappeningsLoadedAction, SEARCH_HAPPENINGS_ACTION, SearchHappeningsAction
+  LoadThisDaysShowsAction,
+  REGION_HAPPENINGS_LOADED_ACTION, RegionHappeningsLoadedAction, SEARCH_HAPPENINGS_ACTION, SearchHappeningsAction,
+  THIS_DAYS_SHOWS_LOADED_ACTION, ThisDaysShowsLoadedAction
 } from '../actions';
 import { INITIAL_STORE_DATA, StoreData } from '../storeData';
-import { Happening } from '../../shared/models/happening';
+import { Happening } from '../../../shared/models/happening';
 
 export function reduceStoreData(state: StoreData = INITIAL_STORE_DATA, action: Action): StoreData {
   switch (action.type) {
@@ -14,6 +16,8 @@ export function reduceStoreData(state: StoreData = INITIAL_STORE_DATA, action: A
       return handleSearchHappeningsAction(state, <SearchHappeningsAction>action);
     case REGION_HAPPENINGS_LOADED_ACTION:
       return handleRegionHappeningsLoadedAction(state, <RegionHappeningsLoadedAction>action);
+    case THIS_DAYS_SHOWS_LOADED_ACTION:
+      return handleThisDaysShowsLoadedAction(state, <ThisDaysShowsLoadedAction>action);
     default:
       return state;
   }
@@ -59,3 +63,16 @@ export function handleSearchHappeningsAction(state: StoreData, action: SearchHap
   newState.visibleHappenings = visibleHappenings;
   return newState;
 }
+
+export function handleThisDaysShowsLoadedAction(state: StoreData, action: ThisDaysShowsLoadedAction): StoreData {
+  const data = action.payload;
+  const currentDate = moment();
+
+  // If no data was loaded
+  if (!data || !data.response.docs) {
+    return Object.assign({}, state, { limaShows: {} });
+  }
+
+  return Object.assign({}, state, { limaShows: data.response.docs });
+}
+
