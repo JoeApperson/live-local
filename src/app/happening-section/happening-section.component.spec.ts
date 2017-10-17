@@ -6,7 +6,7 @@ import { HappeningListComponent } from './happening-list/happening-list.componen
 import { Store } from '@ngrx/store';
 import { MockStore } from '../store/mockStore';
 import { ApplicationState, INITIAL_APPLICATION_STATE } from '../store/appState';
-import { INITIAL_STORE_DATA, StoreData } from '../store/storeData';
+import { StoreData } from '../store/storeData';
 import { INITIAL_UI_STATE } from '../store/uiState';
 import { stateToHappeningSummariesSelector } from './stateToHappeningSummary';
 

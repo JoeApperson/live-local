@@ -1,9 +1,6 @@
-import { TestBed, inject, fakeAsync, tick } from '@angular/core/testing';
 import { MockBackend } from '@angular/http/testing';
 import {
-  BaseRequestOptions, ConnectionBackend, Http, HttpModule, RequestOptions,
-  ResponseOptions
-} from '@angular/http';
+  BaseRequestOptions, ConnectionBackend, Http, RequestOptions} from '@angular/http';
 
 import { HappeningsService } from './happenings.service';
 import { ReflectiveInjector } from '@angular/core';

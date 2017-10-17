@@ -33,8 +33,6 @@ export class HappeningCardComponent implements OnInit {
   }
 
   isMultiDay(): boolean {
-    const result = this.happening && this.happening.showEndDate !== null && this.happening.showEndDate !== '';
-    // console.log('isMultiDay:', this.happening, result);
-    return result;
+    return this.happening && this.happening.showEndDate !== null && this.happening.showEndDate !== '';
   }
 }

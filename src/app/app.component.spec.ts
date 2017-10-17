@@ -13,7 +13,6 @@ import { HttpModule } from '@angular/http';
 import { ApplicationState, INITIAL_APPLICATION_STATE } from './store/appState';
 import { FilterComponent } from './filter-section/filter/filter.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { RouterModule } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
 import { NavbarComponent } from './navbar/navbar.component';
 

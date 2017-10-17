@@ -24,10 +24,12 @@ import { StoreRouterConnectingModule } from '@ngrx/router-store';
 import { routes } from './app.routes';
 import { ThisDayViewComponent } from './this-day-view/this-day-view.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { BaseSmartComponent } from './shared/base-smart.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    BaseSmartComponent,
     HappeningsViewComponent,
     FilterSectionComponent,
     HappeningSectionComponent,

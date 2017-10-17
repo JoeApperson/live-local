@@ -7,13 +7,14 @@ import { values } from 'lodash';
 
 import { SelectHappeningAction, SelectRegionAction } from '../store/actions';
 import { stateToHappeningSummariesSelector, stateToVisibleHappeningsSelector } from './stateToHappeningSummary';
+import { BaseSmartComponent } from '../shared/base-smart.component';
 
 @Component({
   selector: 'lilo-happening-section',
   templateUrl: './happening-section.component.html',
   styleUrls: ['./happening-section.component.css']
 })
-export class HappeningSectionComponent implements OnInit {
+export class HappeningSectionComponent extends BaseSmartComponent implements OnInit {
 
   happenings$: Observable<HappeningVM[]> = Observable.empty();
   visibleHappenings$: Observable<Array<number>>;
@@ -22,6 +23,8 @@ export class HappeningSectionComponent implements OnInit {
   happeningsToShow: HappeningVM[] = [];
 
   constructor(private store: Store<ApplicationState>) {
+    super();
+
     this.happenings$ = store.select(stateToHappeningSummariesSelector);
     this.visibleHappenings$ = store.select(stateToVisibleHappeningsSelector);
     this.selectedID$ = store.select(state => state.uiState.selectedHappeningID);
@@ -29,13 +32,12 @@ export class HappeningSectionComponent implements OnInit {
 
     // This is an observable of visibleHappenings$ that filters happenings$ so only those matching the user's filter
     // conditions are included on the happenings list.
-    this.visibleHappenings$.combineLatest(
+    this.addSubscription(this.visibleHappenings$.combineLatest(
       this.happenings$,
       (visible, happenings) => {
         return happenings.filter(h => visible.indexOf(h.id) > -1);
       }
-    ).subscribe(h => this.happeningsToShow = h);
-
+    ).subscribe(h => this.happeningsToShow = h));
   }
 
   ngOnInit() {
