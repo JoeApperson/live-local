@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
+import * as moment from 'moment';
 
 @Injectable()
 export class LiMaService {
@@ -10,12 +11,8 @@ export class LiMaService {
 
   getShowsForThisDay(): Observable<any> {
     const params = new URLSearchParams();
-
-    // const thisDay = '-10-24';
-    // params.set('title', thisDay);
-    // params.set('collection', 'etree');
-
-    const paramStr = 'title:("-10-24") AND collection:(etree)';
+    const today = moment().startOf('day').format('-MM-DD');
+    const paramStr = `title:("${today}") AND collection:(etree)`;
     params.set('q', paramStr);
 
     return this.http.get('/api/lima-shows?' + params.toString())

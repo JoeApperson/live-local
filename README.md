@@ -5,6 +5,10 @@ The project was generated with [Angular CLI](https://github.com/angular/angular-
 
 You can find a usable demo instance of this app [here](http://livloc.thefarmgarden.com)
 
+## API Server
+
+Run `yarn api-server` to start the dev API Server. This is a simple Express.js app used to proxy requests to the Live Music Archive. The API server runs on port 8065.  
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
@@ -16,8 +20,6 @@ Run `ng generate component component-name` to generate a new component. You can 
 ## Build
 
 Run `ng build` to build the project. The build artifacts are stored in the `dist/` directory.
-
-## Build
 
 Run `ng build:prod` to build the project for a production server (-prod -aot). The build artifacts are stored in the `dist/` directory..
 
