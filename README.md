@@ -3,11 +3,11 @@ This is a sample application developed using Angular 4, Bootstrap, and @ngrx/sto
 
 The project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.4.3.
 
-You can find a usable demo instance of this app [here](http://livloc.thefarmgarden.com)
+You can find a usable demo instance of this app [here](http://pcs-live-local.heroku.com)
 
 ## API Server
 
-Run `yarn api-server` to start the dev API Server. This is a simple Express.js app used to proxy requests to the Live Music Archive. The API server runs on port 8065.  
+Run `yarn start` to build the app and start the dev API Server. This is a simple Express.js app used to proxy requests to the Live Music Archive. The API server runs on port 8065. It can be overridden by setting the PORT environment variable.  
 
 ## Development server
 
