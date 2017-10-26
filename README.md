@@ -3,7 +3,7 @@ This is a sample application developed using Angular 4, Bootstrap, and @ngrx/sto
 
 The project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.4.3.
 
-You can find a usable demo instance of this app [here](http://pcs-live-local.heroku.com)
+You can find a usable demo instance of this app [here](http://livlocl.heroku.com)
 
 ## API Server
 
