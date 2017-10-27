@@ -48,15 +48,25 @@ export class ThisDayViewComponent extends BaseSmartComponent implements OnInit {
 
   private stateToTodaysLimaShowsSelector(state: ApplicationState): LimaShowVM[] {
     const shows = values<LiMASearchResponseItem>(state.storeData.limaShows);
+    if (!shows) {
+      return [];
+    }
     return shows.map(mapLimaShowToShowSummary).sort((a, b) => {
-      if (a.rating > b.rating) {
-        return true;
-      } else if (a.rating < b.rating) {
-        return false;
+      // sort by rating (desc) and title (asc)
+      if (!a.rating || a.rating < b.rating) {
+        return 1;
+      } else if (!b.rating || a.rating > b.rating) {
+        return -1;
+      } else if (!b.num_reviews || a.num_reviews > b.num_reviews) {
+        return 1;
+      } else if (!a.num_reviews || a.num_reviews < b.num_reviews) {
+        return -1;
       } else if (a.title > b.title) {
-        return true;
+        return 1;
+      } else if (a.title < b.title) {
+        return -1;
       } else {
-        return false;
+        return 0;
       }
     });
   }

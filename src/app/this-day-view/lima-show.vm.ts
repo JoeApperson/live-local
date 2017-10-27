@@ -5,6 +5,7 @@ export interface LimaShowVM {
   artist: string;
   title: string;
   description: string;
-  rating?: number;
+  rating: number;
+  numReviews: number;
   href: string;  // link to the item on the archive
 }

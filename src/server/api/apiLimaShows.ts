@@ -9,7 +9,7 @@ export function apiGetLimaShows(app: Application) {
   app.route(BASE_ROUTE).get((req: Request, res: Response) => {
     const searchFor = {
       q: req.query.q,
-      fl: ['identifier', 'avg_rating', 'title', 'creator', 'description'],
+      fl: ['identifier', 'avg_rating', 'num_reviews', 'title', 'description'],
       rows: 5000
     };
 

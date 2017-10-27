@@ -23,8 +23,9 @@ export interface LiMASearchResponseHeader {
 export interface LiMASearchResponseItem {
   avg_rating?: string;        // 0 - 5.0
   creator?: string;           // performer name
-  description: string;        // set list
+  description?: string;       // set list
   identifier: string;         // use this to get an item's details
+  num_reviews?: string;       // how many reviews
   title: string;              // item's title
 }
 
