@@ -1,10 +1,10 @@
-<div class="panel panel-primary">
-  <div class="panel-heading">
+<div class="card">
+  <div class="card-header">
     What's Happening
   </div>
-  <div class="panel-body">
+  <div class="card-block">
     <div *ngIf="happenings">
-      <ul class="list-unstyled media-list">
+      <ul class="list-unstyled media-list p-3">
         <li *ngFor="let h of happenings">
           <lilo-happening-card
             [happening]="h"

@@ -4,19 +4,16 @@
   width: 95%;
 }
 
-.panel-heading {
+.card-header {
   font-weight: bold;
+  cursor: pointer;
 }
 
 label {
   margin-right: 6px;
 }
 
-.panel-info > .panel-heading {
-  cursor: pointer;
-}
-
-*.panel-info.active {
+*.card.active {
   border: 3px solid lemonchiffon;
   background-color: lemonchiffon;
 }

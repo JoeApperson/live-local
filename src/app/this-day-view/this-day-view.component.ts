@@ -52,14 +52,14 @@ export class ThisDayViewComponent extends BaseSmartComponent implements OnInit {
       return [];
     }
     return shows.map(mapLimaShowToShowSummary).sort((a, b) => {
-      // sort by rating (desc) and title (asc)
+      // sort by rating (desc), num reviews (desc), and title (asc)
       if (!a.rating || a.rating < b.rating) {
         return 1;
       } else if (!b.rating || a.rating > b.rating) {
         return -1;
-      } else if (!b.num_reviews || a.num_reviews > b.num_reviews) {
-        return 1;
       } else if (!a.num_reviews || a.num_reviews < b.num_reviews) {
+        return 1;
+      } else if (!b.num_reviews || a.num_reviews > b.num_reviews) {
         return -1;
       } else if (a.title > b.title) {
         return 1;

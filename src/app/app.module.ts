@@ -7,6 +7,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { RouterModule } from '@angular/router';
 import { StoreRouterConnectingModule } from '@ngrx/router-store';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppComponent } from './app.component';
 import { HappeningsViewComponent } from './happenings-view/happenings-view.component';
@@ -55,6 +56,7 @@ import { NoticesComponent } from './notices/notices.component';
     FormsModule,
     ReactiveFormsModule,
     HttpModule,
+    NgbModule.forRoot(),
     RouterModule.forRoot(routes, { useHash: false }),
     StoreRouterConnectingModule,
     StoreModule.forRoot(reducers),

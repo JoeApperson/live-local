@@ -1,22 +1,61 @@
 <!-- Fixed navbar -->
-<div class="navbar navbar-default navbar-static-top">
-  <img src="assets/live-local.png" class="pull-left">
-  <div class="container">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="#">{{title}}</a>
-    </div>
-    <div class="collapse navbar-collapse">
-      <ul class="nav navbar-nav">
-        <li [ngClass]="{ 'active': selectedRoute === '/#' }"><a href="#">Home</a></li>
-        <li [ngClass]="{ 'active': selectedRoute === '/happenings' }"><a href="happenings">Happenings</a></li>
-        <li [ngClass]="{ 'active': selectedRoute === '/thisday'}"><a href="thisday">On This Day</a></li>
-        <li [ngClass]="{ 'active': selectedRoute === '/about'}"><a href="about">About</a></li>
-      </ul>
-    </div> <!--/.nav-collapse -->
+<nav class="navbar navbar-expand-md">
+  <a class="navbar-brand" href="#">
+    <span style="vertical-align: bottom;">
+      <img src="assets/live-local.png" class="pull-left">
+      <span>{{title}}</span>
+    </span>
+  </a>
+  <button type="button" class="navbar-toggler btn btn-outline-primary" (click)="isCollapsed = !isCollapsed"
+          [attr.aria-expanded]="!isCollapsed" aria-controls="navbar-target" aria-label="Toggle navigation">
+    <i class="fa fa-lg fa-bars"></i>
+  </button>
+
+  <div class="collapse navbar-collapse" [ngbCollapse]="isCollapsed" id="navbar-target">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item" [ngClass]="{ 'active': selectedRoute === '/#' }">
+        <a class="nav-link" href="#">Home</a>
+      </li>
+      <li class="nav-item" [ngClass]="{ 'active': selectedRoute === '/happenings' }">
+        <a class="nav-link" href="happenings">Happenings</a>
+      </li>
+      <li class="nav-item" [ngClass]="{ 'active': selectedRoute === '/thisday'}">
+        <a class="nav-link" href="thisday">On This Day</a>
+      </li>
+      <li class="nav-item" [ngClass]="{ 'active': selectedRoute === '/about'}">
+        <a class="nav-link" href="about">About</a>
+      </li>
+    </ul>
   </div>
+</nav>
+
+
+
+
+
+<!--
+
+<div class="container">
+
+  <nav class="navbar">
+      <button type="button" class="navbar-toggler navbar-toggler-left hidden-md-up" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <a class="navbar-brand" href="#">
+        <img src="assets/live-local.png" class="pull-left">
+        {{title}}
+      </a>
+
+      <div class="collapse navbar-toggleable-md" id="navbar">
+        <nav class="nav navbar-nav">
+          <a class="nav-item nav-link" [ngClass]="{ 'active': selectedRoute === '/#' }" href="#">Home</a>
+          <a class="nav-item nav-link" [ngClass]="{ 'active': selectedRoute === '/happenings' }" href="happenings">Happenings</a>
+          <a class="nav-item nav-link" [ngClass]="{ 'active': selectedRoute === '/thisday'}" href="thisday">On This Day</a>
+          <a class="nav-item nav-link" [ngClass]="{ 'active': selectedRoute === '/about'}" href="about">About</a>
+        </nav>
+      </div>
+    </nav>
+
 </div>
+ -->

@@ -1,6 +1,8 @@
 <div *ngIf="notice" class="notices-frame">
   <div class="notices notices-error">
-    <i (click)="close()" class="glyphicon glyphicon-remove">close</i>
+    <button (click)="close()" type="button" class="close" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
     <div class="notices-container">
       <div>{{notice}}</div>
     </div>

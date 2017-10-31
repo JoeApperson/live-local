@@ -15,6 +15,7 @@ export class NavbarComponent extends BaseSmartComponent {
   title: string;
 
   selectedRoute: string;
+  isCollapsed: boolean;
 
   constructor(private store: Store<ApplicationState>) {
     super();
