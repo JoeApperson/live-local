@@ -6,7 +6,8 @@
   <div *ngIf="shows?.length > 0">
     <ul class="list list-unstyled">
       <li class="small" *ngFor="let s of shows">
-        <a href="{{s.href}}">{{s.title}} ({{s.rating}})</a>
+        <ngb-rating [(rate)]="s.rating" [max]="5" [readonly]="true"></ngb-rating> ({{s.numReviews}})
+        <a href="{{s.href}}">{{s.title}}</a>
       </li>
     </ul>
   </div>

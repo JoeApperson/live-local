@@ -7,7 +7,7 @@ import { BaseSmartComponent } from '../common/base-smart.component';
 @Component({
   selector: 'lilo-navbar',
   templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.css']
+  styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent extends BaseSmartComponent {
 

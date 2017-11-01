@@ -1,0 +1,21 @@
+/* Use smaller gutters for Bootstrap's grid system */
+.gutter-6.row {
+  margin-right: -3px;
+  margin-left: -3px;
+}
+
+.gutter-6 {
+  > [class^="col-"] {
+    padding-right: 3px;
+    padding-left: 3px;
+  }
+  > [class^=" col-"] {
+    padding-right: 3px;
+    padding-left: 3px;
+  }
+}
+
+/* Scale all labels to 75% */
+label {
+  font-size: 75%;
+}

@@ -6,7 +6,7 @@ import { ApplicationState } from '../store/appState';
 @Component({
   selector: 'lilo-notices',
   templateUrl: './notices.component.html',
-  styleUrls: ['./notices.component.css']
+  styleUrls: ['./notices.component.scss']
 })
 export class NoticesComponent implements OnInit {
 

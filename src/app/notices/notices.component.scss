@@ -1,0 +1,11 @@
+$notice_color: darkred;
+$notice_background_color: palevioletred;
+
+.notices-frame {
+  background-color: $notice_background_color;
+  color: $notice_color;
+  min-height: 40px;
+}
+.notices-container {
+  margin: 4px;
+}

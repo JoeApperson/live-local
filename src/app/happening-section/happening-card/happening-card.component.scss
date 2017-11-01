@@ -1,3 +1,5 @@
+$active_card_color: lemonchiffon;
+
 .extra-info {
   text-indent: 30px hanging;
   font-size: 85%;
@@ -14,6 +16,6 @@ label {
 }
 
 *.card.active {
-  border: 3px solid lemonchiffon;
-  background-color: lemonchiffon;
+  border: 3px solid $active_card_color;
+  background-color: $active_card_color;
 }

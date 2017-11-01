@@ -6,7 +6,7 @@ import { HappeningVM } from '../happening.vm';
 @Component({
   selector: 'lilo-happening-card',
   templateUrl: './happening-card.component.html',
-  styleUrls: ['./happening-card.component.css']
+  styleUrls: ['./happening-card.component.scss']
 })
 export class HappeningCardComponent implements OnInit {
 

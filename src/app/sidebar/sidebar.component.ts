@@ -6,7 +6,7 @@ import { Store } from '@ngrx/store';
 @Component({
   selector: 'lilo-sidebar',
   templateUrl: './sidebar.component.html',
-  styleUrls: ['./sidebar.component.css']
+  styleUrls: ['./sidebar.component.scss']
 })
 export class SidebarComponent implements OnInit {
 

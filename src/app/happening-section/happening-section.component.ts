@@ -12,7 +12,7 @@ import { BaseSmartComponent } from '../common/base-smart.component';
 @Component({
   selector: 'lilo-happening-section',
   templateUrl: './happening-section.component.html',
-  styleUrls: ['./happening-section.component.css']
+  styleUrls: ['./happening-section.component.scss']
 })
 export class HappeningSectionComponent extends BaseSmartComponent implements OnInit {
 

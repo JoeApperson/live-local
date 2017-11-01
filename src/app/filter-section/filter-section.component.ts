@@ -11,7 +11,7 @@ import { SearchHappeningsAction } from '../store/actions';
 @Component({
   selector: 'lilo-filter-section',
   templateUrl: './filter-section.component.html',
-  styleUrls: ['./filter-section.component.css']
+  styleUrls: ['./filter-section.component.scss']
 })
 export class FilterSectionComponent implements OnInit {
 
