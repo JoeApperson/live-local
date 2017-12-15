@@ -42,7 +42,22 @@ function mapLimaShowToShowSummary(show: LiMASearchResponseItem): LimaShowVM {
     description: show.description,
     href: 'https://archive.org/details/' + show.identifier,
     numReviews: show.num_reviews ? +show.num_reviews : 0,
+    highlight: isShowImportant(show),
     // if there is an avg rating, turn it into a number
     rating: show.avg_rating ? +show.avg_rating : undefined
   };
+}
+
+function isShowImportant(show: LiMASearchResponseItem): boolean {
+
+  console.log(show);
+
+  if (!show.description) {
+    return false
+  }
+  const HotArtists = ['Big Wu', 'Billy Strings', 'Leftover Salmon', 'Grateful Dead', 'New Monsoon', 'Railroad Earth'];
+  const showDets = show.description.toLowerCase();
+  const IsSoundboard = show.identifier.includes('sbd') || showDets.includes('sbd') || show.description.includes('soundboard');
+
+  return HotArtists.includes(show.creator) || IsSoundboard;
 }

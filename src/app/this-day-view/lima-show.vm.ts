@@ -8,4 +8,5 @@ export interface LimaShowVM {
   rating: number;
   numReviews: number;
   href: string;  // link to the item on the archive
+  highlight?: boolean;
 }

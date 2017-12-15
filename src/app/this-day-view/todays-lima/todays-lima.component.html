@@ -7,7 +7,7 @@
     <ul class="list list-unstyled">
       <li class="small" *ngFor="let s of shows">
         <ngb-rating [(rate)]="s.rating" [max]="5" [readonly]="true"></ngb-rating> ({{s.numReviews}})
-        <a href="{{s.href}}">{{s.title}}</a>
+        <a [ngClass]="{ 'highlight': s.highlight }" href="{{s.href}}">{{s.title}}</a>
       </li>
     </ul>
   </div>
