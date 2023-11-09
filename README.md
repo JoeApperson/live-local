@@ -1,9 +1,7 @@
 # Live Local
-This is a sample application developed using Angular 4, ng-bootstrap, Bootstrap 4, and @ngrx/store. It was devised mostly as a learning experience. It is currently undergoing active development, so expect frequent updates.
+This is a sample application developed using Angular 4, ng-bootstrap, Bootstrap 4, and @ngrx/store. It was devised mostly as a learning experience. 
 
 The project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.4.3.
-
-You can find a usable demo instance of this app [here](http://livlocl.heroku.com)
 
 ## API Server
 
